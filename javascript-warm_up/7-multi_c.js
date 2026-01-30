@@ -1,9 +1,8 @@
 #!/usr/bin/node
 
-const occurances = parseInt(process.argv[2]);
-
-if (occurances) {
-  for (let i in occurances) {
+const loopv = parseInt(process.argv[2]);
+if (loopv) {
+  for (let i = 1; i <= loopv; i++) {
     console.log('C is fun');
   }
 } else {
