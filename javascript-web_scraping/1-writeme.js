@@ -1,24 +1,25 @@
 #!/usr/bin/node
 
-// Import the 'fs' module to work with the file system
+// Import the 'fs' module
 const fs = require('fs');
 
-// Get the file path from the command line arguments
+// Get the file path
 const filePath = process.argv[2];
-const stringtext = process.argv[3];
-if (!filePath) {
-  console.error('Please provide a file path as the first argument.');
+
+// Join all arguments after the file path as the content
+const content = process.argv.slice(3).join(' ');
+
+if (!filePath || !content) {
+  console.error('Please provide both a file path and a string to write.');
   process.exit(1);
 }
 
-// Read the file in UTF-8 encoding
-fs.writeFile(filePath, stringtext, 'utf-8', (err, data) => {
+// Write the string to the file in UTF-8
+fs.writeFile(filePath, content, 'utf-8', (err) => {
   if (err) {
-    // Print the error object if an error occurs
     console.error(err);
     return;
   }
 
-  // Print the content of the file
-  console.log('File written Successfully');
+  console.log('File written successfully.');
 });
