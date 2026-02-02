@@ -1,12 +1,8 @@
 #!/usr/bin/node
 
-// Import the 'fs' module
 const fs = require('fs');
 
-// Get the file path
 const filePath = process.argv[2];
-
-// Join all arguments after the file path as the content
 const content = process.argv.slice(3).join(' ');
 
 if (!filePath || !content) {
@@ -18,8 +14,5 @@ if (!filePath || !content) {
 fs.writeFile(filePath, content, 'utf-8', (err) => {
   if (err) {
     console.error(err);
-    return;
   }
-
-  console.log('File written successfully.');
 });
