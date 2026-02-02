@@ -13,13 +13,12 @@ request.get(apiUrl, (error, response, body) => {
   const data = JSON.parse(body);
   const movies = data.results;
 
-  const wedgeId = 'https://swapi-api.alx-tools.com/api/people/18/';
   let count = 0;
+  const wedgeId = '/18/'; // check for this at the end of character URL
 
   movies.forEach(movie => {
-    if (movie.characters.includes(wedgeId)) {
-      count += 1;
-    }
+    const found = movie.characters.some(charUrl => charUrl.endsWith(wedgeId));
+    if (found) count += 1;
   });
 
   console.log(count);
