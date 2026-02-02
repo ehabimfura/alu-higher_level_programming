@@ -22,4 +22,3 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
   // Print the content of the file
   console.log(data);
 });
-
